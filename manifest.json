@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"name": "Azure DevOps Link Copy",
 	"short_name": "ADO Link Copy",
 	"description": "Quickly copy the link to any Azure DevOps work item",
@@ -8,6 +8,8 @@
 		"name": "Nitish Sachar",
 		"url": "https://github.com/uioporqwerty/azure-devops-link-copy-web-ext"
 	},
+	"author": "Nitish Sachar",
+	"homepage_url": "https://github.com/uioporqwerty/azure-devops-link-copy-web-ext",
 	"icons": {
 		"64": "src/images/icon.png"
 	},
