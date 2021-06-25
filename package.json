@@ -4,9 +4,8 @@
   "description": "Quickly copy the link to any Azure DevOps work item ",
   "main": "content_script.js",
   "scripts": {
-    "build": "web-ext build --overwrite-dest",
-    "start": "web-ext run",
-    "lint": "web-ext lint",
+    "build:firefox": "webextension-toolbox build firefox",
+    "start:firefox": "webextension-toolbox dev firefox",
     "flow": "flow"
   },
   "repository": {
@@ -24,9 +23,6 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-flow": "^7.14.5",
     "flow-bin": "^0.153.0",
-    "web-ext": "^6.1.0"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3"
+    "webextension-toolbox": "^4.0.1"
   }
 }
