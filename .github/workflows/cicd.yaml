@@ -39,8 +39,8 @@ jobs:
         if: startsWith( github.ref, 'refs/tags/')
         uses: test-room-7/action-update-file@v1
         with:
-            file-path: ./app/manifest.json
-            commit-msg: "Update manfiest.json version to ${RELEASE_VERSION}"
+            file-path: app/manifest.json
+            commit-msg: "Update manfiest.json version to ${{ env.RELEASE_VERSION}}"
             github-token: ${{ secrets.SECRET_GITHUB_TOKEN }}
 
       # - name: "Upload Firefox add-on"
