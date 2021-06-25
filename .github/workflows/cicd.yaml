@@ -43,12 +43,12 @@ jobs:
             commit-msg: "Update manfiest.json version to ${{ env.RELEASE_VERSION}}"
             github-token: ${{ secrets.SECRET_GITHUB_TOKEN }}
 
-      # - name: "Upload Firefox add-on"
-      #   if: startsWith( github.ref, 'refs/tags/')
-      #   uses: trmcnvn/firefox-addon@v1
-      #   with:
-      #     uuid: '{7069c89a-e845-4505-9f90-9dfffe9ef0d7}'
-      #     xpi: web-ext-artifacts/azure_devops_link_copy-1..xpi
-      #     manifest: manifest.json
-      #     api-key: ${{ secrets.FIREFOX_API_KEY }}
-      #     api-secret: ${{ secrets.FIREFOX_API_SECRET }}
+      - name: "Upload Firefox add-on"
+        if: startsWith( github.ref, 'refs/tags/')
+        uses: trmcnvn/firefox-addon@v1
+        with:
+          uuid: '{7069c89a-e845-4505-9f90-9dfffe9ef0d7}'
+          xpi: azure-devops-link-copy-web-ext.v${{ env.RELEASE_VERSION }}.firefox.xpi
+          manifest: app/manifest.json
+          api-key: ${{ secrets.FIREFOX_API_KEY }}
+          api-secret: ${{ secrets.FIREFOX_API_SECRET }}
