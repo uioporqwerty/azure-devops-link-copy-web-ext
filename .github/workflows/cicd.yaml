@@ -33,7 +33,7 @@ jobs:
       - name: "Set manifest version"
         if: startsWith( github.ref, 'refs/tags/')
         run: |
-          jq '.version = "${{ env.RELEASE_VERSION}}"' ./app/manifest.json > ./app/manifest.json
+          echo $(cat ./app/manifest.json | jq '.version = "${{ env.RELEASE_VERSION}}"' ./app/manifest.json) > ./app/manifest.json
       
       - name: "Commit manifest.json"
         if: startsWith( github.ref, 'refs/tags/')
