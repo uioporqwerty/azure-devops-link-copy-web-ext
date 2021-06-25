@@ -48,7 +48,7 @@ jobs:
         uses: trmcnvn/firefox-addon@v1
         with:
           uuid: '{7069c89a-e845-4505-9f90-9dfffe9ef0d7}'
-          xpi: azure-devops-link-copy-web-ext.v${{ env.RELEASE_VERSION }}.firefox.xpi
+          xpi: packages/azure-devops-link-copy-web-ext.v${{ env.RELEASE_VERSION }}.firefox.xpi
           manifest: app/manifest.json
           api-key: ${{ secrets.FIREFOX_API_KEY }}
           api-secret: ${{ secrets.FIREFOX_API_SECRET }}
