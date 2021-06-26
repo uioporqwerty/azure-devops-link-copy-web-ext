@@ -78,7 +78,7 @@ workItemLink.addEventListener("mouseleave", (e) => {
   if (e.explicitOriginalTarget != workItemCopyLink)
     linkContainer.classList.add("hide");
 });
-linkContainer.addEventListener("mouseleave", (e) => {
+linkContainer.addEventListener("mouseleave", () => {
   linkContainer.classList.add("hide");
 });
 
