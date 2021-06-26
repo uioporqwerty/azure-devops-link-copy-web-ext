@@ -15,9 +15,9 @@ function getLinkImage() {
     window.getComputedStyle(document.body).backgroundColor
   );
   if (contrast === "black") {
-    return browser.runtime.getURL("src/images/link-dark.svg");
+    return browser.runtime.getURL("images/link-dark.svg");
   } else {
-    return browser.runtime.getURL("src/images/link-light.svg");
+    return browser.runtime.getURL("images/link-light.svg");
   }
 }
 
@@ -66,8 +66,22 @@ const workItemInfoHeader = document.querySelector(
 );
 
 let linkContainer = document.createElement("div");
+linkContainer.id = "link-container";
+linkContainer.classList.add("hide");
 let message = createMessage();
 let workItemCopyLink = createWorkItemCopyLink(message);
+const workItemLink = workItemInfoHeader.querySelector(".caption");
+workItemLink.addEventListener("mouseover", () => {
+  linkContainer.classList.remove("hide");
+});
+workItemLink.addEventListener("mouseleave", (e) => {
+  if (e.explicitOriginalTarget != workItemCopyLink)
+    linkContainer.classList.add("hide");
+});
+linkContainer.addEventListener("mouseleave", (e) => {
+  linkContainer.classList.add("hide");
+});
+
 linkContainer.appendChild(workItemCopyLink);
 linkContainer.appendChild(message);
 workItemInfoHeader.appendChild(linkContainer);

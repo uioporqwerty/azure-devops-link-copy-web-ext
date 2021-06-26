@@ -1,0 +1,11 @@
+#link-container {
+  opacity: 1;
+  transition: opacity 0.2s ease 0s, transform 0.2s ease 0s;
+  transform: translate(0px, 0px);
+}
+
+#link-container.hide {
+  opacity: 0;
+  transition: opacity 0.2s ease 0s, transform 0.2s ease 0s;
+  transform: translate(-8px, 0px);
+}

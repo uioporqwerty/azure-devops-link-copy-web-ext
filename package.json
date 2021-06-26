@@ -23,6 +23,6 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-flow": "^7.14.5",
     "flow-bin": "^0.153.0",
-    "webextension-toolbox": "^4.0.1"
+    "webextension-toolbox": "3.0.0"
   }
 }
