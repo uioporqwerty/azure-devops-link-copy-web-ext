@@ -61,27 +61,43 @@ function createWorkItemCopyLink(message) {
   return workItemCopyLink;
 }
 
-const workItemInfoHeader = document.querySelector(
-  ".workitem-info-bar > .info-text-wrapper"
-);
-
-let linkContainer = document.createElement("div");
-linkContainer.id = "link-container";
-linkContainer.classList.add("hide");
-let message = createMessage();
-let workItemCopyLink = createWorkItemCopyLink(message);
-const workItemLink = workItemInfoHeader.querySelector(".caption");
-workItemLink.addEventListener("mouseover", () => {
-  linkContainer.classList.remove("hide");
-});
-workItemLink.addEventListener("mouseleave", (e) => {
-  if (e.explicitOriginalTarget != workItemCopyLink)
-    linkContainer.classList.add("hide");
-});
-linkContainer.addEventListener("mouseleave", () => {
+function getCopyLinkNode(workItemInfoHeader) {
+  let linkContainer = document.createElement("div");
+  linkContainer.id = "link-container";
   linkContainer.classList.add("hide");
-});
+  let message = createMessage();
+  let workItemCopyLink = createWorkItemCopyLink(message);
+  let workItemLink = document.querySelector(".caption");
+  workItemLink.addEventListener("mouseover", () => {
+    linkContainer.classList.remove("hide");
+  });
+  workItemLink.addEventListener("mouseleave", (e) => {
+    if (e.relatedTarget != workItemCopyLink)
+      linkContainer.classList.add("hide");
+  });
+  linkContainer.addEventListener("mouseleave", () => {
+    linkContainer.classList.add("hide");
+  });
 
-linkContainer.appendChild(workItemCopyLink);
-linkContainer.appendChild(message);
-workItemInfoHeader.appendChild(linkContainer);
+  linkContainer.appendChild(workItemCopyLink);
+  linkContainer.appendChild(message);
+  return linkContainer;
+}
+
+const obs = new MutationObserver(function (mutations, observer) {
+  for (var i = 0; i < mutations[0].addedNodes.length; i++) {
+    const element = mutations[0].addedNodes[i];
+    if (
+      element.nodeType == 1 &&
+      element.classList.contains("info-text-wrapper")
+    ) {
+      element.appendChild(getCopyLinkNode(element));
+    }
+  }
+});
+obs.observe(document.body, {
+  childList: true,
+  subtree: true,
+  attributes: false,
+  characterData: false,
+});
