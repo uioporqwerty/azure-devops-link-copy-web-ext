@@ -45,7 +45,13 @@ jobs:
 
       - run: npm run build:edge
         name: "Build Edge"
-        
+      
+      - run: npm run build:chrome
+        name: "Build Chrome"
+      
+      - run: npm run build:opera
+        name: "Build Opera"
+
       - name: "Upload to Firefox add-on market"
         if: startsWith( github.ref, 'refs/tags/')
         uses: trmcnvn/firefox-addon@v1

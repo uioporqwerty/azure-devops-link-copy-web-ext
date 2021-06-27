@@ -7,9 +7,11 @@
     "build:firefox": "webextension-toolbox build firefox",
     "build:edge": "webextension-toolbox build edge",
     "build:chrome": "webextension-toolbox build chrome",
+    "build:opera": "webextension-toolbox build opera",
     "start:firefox": "webextension-toolbox dev firefox",
     "start:edge": "webextension-toolbox dev edge",
     "start:chrome": "webextension-toolbox dev chrome",
+    "start:opera": "webextension-toolbox dev opera",
     "flow": "flow"
   },
   "repository": {
