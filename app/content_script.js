@@ -64,20 +64,8 @@ function createWorkItemCopyLink(message) {
 function getCopyLinkNode(workItemInfoHeader) {
   let linkContainer = document.createElement("div");
   linkContainer.id = "link-container";
-  linkContainer.classList.add("hide");
   let message = createMessage();
   let workItemCopyLink = createWorkItemCopyLink(message);
-  let workItemLink = document.querySelector(".caption");
-  workItemLink.addEventListener("mouseover", () => {
-    linkContainer.classList.remove("hide");
-  });
-  workItemLink.addEventListener("mouseleave", (e) => {
-    if (e.relatedTarget != workItemCopyLink)
-      linkContainer.classList.add("hide");
-  });
-  linkContainer.addEventListener("mouseleave", () => {
-    linkContainer.classList.add("hide");
-  });
 
   linkContainer.appendChild(workItemCopyLink);
   linkContainer.appendChild(message);
