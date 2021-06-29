@@ -73,13 +73,14 @@ function getCopyLinkNode(workItemInfoHeader) {
 }
 
 const obs = new MutationObserver(function (mutations, observer) {
-  for (var i = 0; i < mutations[0].addedNodes.length; i++) {
-    const element = mutations[0].addedNodes[i];
+  for (var i = 0; i < mutations.length; i++) {
+    const mutationRecord = mutations[i];
     if (
-      element.nodeType == 1 &&
-      element.classList.contains("info-text-wrapper")
+      mutationRecord.target.className ===
+        "workitem-info-bar workitem-header-bar" &&
+      mutationRecord.addedNodes.length > 0
     ) {
-      element.appendChild(getCopyLinkNode(element));
+      mutationRecord.target.children[0].appendChild(getCopyLinkNode());
     }
   }
 });
