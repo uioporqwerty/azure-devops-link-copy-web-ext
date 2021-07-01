@@ -1,4 +1,6 @@
 # Azure DevOps Fast Copy
+![Mozilla Add-on](https://img.shields.io/amo/v/%7B7069c89a-e845-4505-9f90-9dfffe9ef0d7%7D)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/v/lgedpfdllfdjkfjfilhnklfeclpppell)
 
 This is a browser extension that aims to quickly copy a link to an Azure DevOps work item with the click of a button. The inspiration is similar to JIRA's behavior of hovering over a ticket which displays an icon you can click and then that will copy the link to the JIRA ticket to your clipboard. The extension is compatible with light and dark background Azure DevOps themes.
 
