@@ -30,7 +30,7 @@ function getLink() {
 
 function createMessage() {
   let message = document.createElement('p');
-  message.innerHTML = 'Copied!';
+  message.innerHTML = browser.i18n.getMessage('copiedMessage');
   message.style.display = 'none';
   message.style.marginLeft = '4px';
   return message;
@@ -38,7 +38,7 @@ function createMessage() {
 
 function createWorkItemCopyLink(message) {
   let workItemCopyLink = document.createElement('img');
-  workItemCopyLink.alt = 'Copy link to work item';
+  workItemCopyLink.alt = browser.i18n.getMessage('linkAltMessage');
   workItemCopyLink.src = getLinkImage();
   workItemCopyLink.style.cursor = 'pointer';
   workItemCopyLink.onclick = () => {

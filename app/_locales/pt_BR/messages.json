@@ -6,12 +6,12 @@
     "message": "ADO Fast Copy"
   },
   "extensionDescription": {
-    "message": "Quickly copy the link to any Azure DevOps work item"
+    "message": "Copie rapidamente o link para qualquer item de trabalho do Azure DevOps"
   },
   "copiedMessage": {
-    "message": "Copied!"
+    "message": "Copiado!"
   },
   "linkAltMessage": {
-    "message": "Copy link to work item"
+    "message": "Copiar link para item de trabalho"
   }
 }
