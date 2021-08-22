@@ -14,7 +14,8 @@
     "start:opera": "webextension-toolbox dev opera",
     "flow": "flow",
     "prepare": "husky install",
-    "format": "prettier --check app/"
+    "format:check": "prettier --check app/",
+    "format:manifest": "prettier --write app/manifest.json"
   },
   "repository": {
     "type": "git",
