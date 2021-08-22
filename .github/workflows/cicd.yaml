@@ -68,10 +68,10 @@ jobs:
 
       - name: 'Upload to Chrome webstore'
         # if: startsWith( github.ref, 'refs/tags/')
-        uses: mnao305/chrome-extension-upload@1.1.1
-        with:
-          file-path: packages/azure-devops-link-copy-web-ext.v${{ env.RELEASE_VERSION }}.chrome.zip
-          extension-id: lgedpfdllfdjkfjfilhnklfeclpppell
-          client-id: ${{ secrets.CHROME_CLIENT_ID }}
-          client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
-          refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        env:
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+          CHROME_EXTENSION_ID: 'lgedpfdllfdjkfjfilhnklfeclpppell'
+          CHROME_PACKAGE_DIR: $GITHUB_WORKSPACE/azure-devops-link-copy-web-ext/packages/azure-devops-link-copy-web-ext.v${{ env.RELEASE_VERSION }}.chrome.zip
+        run: npm run chrome:deploy
