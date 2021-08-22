@@ -19,8 +19,8 @@ jobs:
       - run: npm install
         name: 'Install dependencies'
 
-      - run: npm run format
-        name: 'Check formatting'
+      # - run: npm run format
+      #   name: 'Check formatting'
 
       - name: 'Set env.RELEASE_VERSION'
         # if: startsWith( github.ref, 'refs/tags/')
@@ -34,6 +34,7 @@ jobs:
         # if: startsWith( github.ref, 'refs/tags/')
         run: |
           echo $(cat ./app/manifest.json | jq '.version = "${{ env.RELEASE_VERSION}}"' ./app/manifest.json) > ./app/manifest.json
+          prettier --write ./app/manifest.json
 
       - name: 'Commit manifest.json'
         # if: startsWith( github.ref, 'refs/tags/')
