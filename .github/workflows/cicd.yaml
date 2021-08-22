@@ -74,4 +74,4 @@ jobs:
           CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
           CHROME_EXTENSION_ID: 'lgedpfdllfdjkfjfilhnklfeclpppell'
           CHROME_PACKAGE_DIR: $GITHUB_WORKSPACE/azure-devops-link-copy-web-ext/packages/azure-devops-link-copy-web-ext.v${{ env.RELEASE_VERSION }}.chrome.zip
-        run: npm run chrome:deploy
+        run: npm run deploy:chrome
