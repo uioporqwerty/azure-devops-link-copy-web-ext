@@ -4,12 +4,16 @@ function getContrast(color) {
     .substring(4, color.length - 1)
     .replace(/ /g, '')
     .split(',');
-  var yiq = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+  var yiq =
+    (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) /
+    1000;
   return yiq >= 128 ? 'black' : 'white';
 }
 
 function getLinkImage() {
-  const contrast = getContrast(window.getComputedStyle(document.body).backgroundColor);
+  const contrast = getContrast(
+    window.getComputedStyle(document.body).backgroundColor
+  );
   if (contrast === 'black') {
     return browser.runtime.getURL('images/link-dark.svg');
   } else {
@@ -18,7 +22,9 @@ function getLinkImage() {
 }
 
 function getLink() {
-  const linkElement = document.querySelector('.workitem-info-bar > .info-text-wrapper > .caption');
+  const linkElement = document.querySelector(
+    '.workitem-info-bar > .info-text-wrapper > .caption'
+  );
   return `https://dev.azure.com${linkElement.getAttribute('href')}`;
 }
 
@@ -70,7 +76,8 @@ const obs = new MutationObserver(function (mutations, observer) {
   for (var i = 0; i < mutations.length; i++) {
     const mutationRecord = mutations[i];
     if (
-      mutationRecord.target.className === 'workitem-info-bar workitem-header-bar' &&
+      mutationRecord.target.className ===
+        'workitem-info-bar workitem-header-bar' &&
       mutationRecord.addedNodes.length > 0
     ) {
       mutationRecord.target.children[0].appendChild(getCopyLinkNode());
