@@ -12,7 +12,9 @@
     "start:edge": "webextension-toolbox dev edge",
     "start:chrome": "webextension-toolbox dev chrome",
     "start:opera": "webextension-toolbox dev opera",
-    "flow": "flow"
+    "flow": "flow",
+    "prepare": "husky install",
+    "format": "prettier --check app/"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,12 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-flow": "^7.14.5",
     "flow-bin": "^0.158.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "prettier": "2.3.2",
     "webextension-toolbox": "^4.0.3"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
