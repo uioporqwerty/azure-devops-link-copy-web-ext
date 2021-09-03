@@ -16,8 +16,20 @@ jobs:
       - uses: actions/setup-node@v2
         name: 'Setup Node'
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
       - run: npm install
         name: 'Install dependencies'
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
 
       - run: npm run format:check
         name: 'Check formatting'
