@@ -1,0 +1,17 @@
+{
+  "extensionName": {
+    "message": "Azure DevOps Fast Copy"
+  },
+  "extensionShortName": {
+    "message": "ADO Fast Copy"
+  },
+  "extensionDescription": {
+    "message": "Szybkie kopiowanie łącza do dowolnego elementu roboczego usługi Azure DevOps"
+  },
+  "copiedMessage": {
+    "message": "Kopiowane!"
+  },
+  "linkAltMessage": {
+    "message": "Kopiowanie łącza do elementu roboczego"
+  }
+}
