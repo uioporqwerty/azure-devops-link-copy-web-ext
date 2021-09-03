@@ -1,4 +1,13 @@
 // @flow
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+const appInsights = new ApplicationInsights({
+  config: {
+    instrumentationKey: '5ffa41fa-b931-4433-96f3-0952255743f1'
+  }
+});
+appInsights.loadAppInsights();
+
 function getContrast(color) {
   var rgb = color
     .substring(4, color.length - 1)
@@ -50,11 +59,10 @@ function createWorkItemCopyLink(message) {
         setTimeout(function () {
           message.style.display = 'none';
         }, 3000);
-        console.log(`Wrote ${link} to clipboard.`);
+        appInsights.trackEvent({ name: 'Copied work item' });
       })
       .catch((err) => {
-        console.log(`Failed to write ${link} to clipboard.`);
-        console.error(err);
+        appInsights.trackException({ error: err });
       });
   };
 

@@ -47,5 +47,8 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@microsoft/applicationinsights-web": "^2.6.5"
   }
 }
