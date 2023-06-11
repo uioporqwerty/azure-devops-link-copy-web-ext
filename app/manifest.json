@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "1.1.7",
+  "version": "1.1.8",
   "name": "__MSG_extensionName__",
   "short_name": "__MSG_extensionShortName__",
   "description": "__MSG_extensionDescription__",
@@ -27,8 +27,6 @@
   ],
   "default_locale": "en",
   "browser_specific_settings": {
-    "gecko": {
-      "id": "{7069c89a-e845-4505-9f90-9dfffe9ef0d7}"
-    }
+    "gecko": { "id": "7069c89a-e845-4505-9f90-9dfffe9ef0d7" }
   }
 }
