@@ -10,11 +10,14 @@ jobs:
     name: 'Build, Lint, Test, and Deploy'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: 'Checkout'
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         name: 'Setup Node'
+        with:
+          node-version: '16'
+          cache: 'npm'
 
       - name: Cache node modules
         uses: actions/cache@v2
