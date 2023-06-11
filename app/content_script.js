@@ -1,12 +1,4 @@
 // @flow
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
-const appInsights = new ApplicationInsights({
-  config: {
-    instrumentationKey: '5ffa41fa-b931-4433-96f3-0952255743f1'
-  }
-});
-appInsights.loadAppInsights();
 
 function getContrast(color) {
   var rgb = color
