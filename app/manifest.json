@@ -1,13 +1,9 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "version": "1.0.9",
   "name": "__MSG_extensionName__",
   "short_name": "__MSG_extensionShortName__",
   "description": "__MSG_extensionDescription__",
-  "developer": {
-    "name": "Nitish Sachar",
-    "url": "https://github.com/uioporqwerty/azure-devops-link-copy-web-ext"
-  },
   "author": "Nitish Sachar",
   "homepage_url": "https://github.com/uioporqwerty/azure-devops-link-copy-web-ext",
   "icons": {
@@ -18,11 +14,16 @@
   "content_scripts": [
     {
       "matches": ["*://dev.azure.com/*"],
-      "js": ["content_script.js"],
-      "css": ["app.css"]
+      "js": ["browser-polyfill.js", "launcher.js", "content-script.js"],
+      "css": ["content-script.css"]
     }
   ],
   "permissions": ["clipboardWrite"],
-  "web_accessible_resources": ["images/link-dark.svg", "images/link-light.svg"],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/link-dark.svg", "images/link-light.svg"],
+      "matches": ["*://dev.azure.com/*"]
+    }
+  ],
   "default_locale": "en"
 }

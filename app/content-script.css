@@ -3,4 +3,10 @@
     'Helvetica Neue', Helvetica, Ubuntu, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 12px;
+  margin-left: 4px;
+  padding-top: 2px;
+}
+
+.teams-share-button {
+  margin-left: 4px;
 }

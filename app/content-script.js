@@ -61,7 +61,7 @@ function createWorkItemCopyLink(message) {
   return workItemCopyLink;
 }
 
-function getCopyLinkNode(workItemInfoHeader) {
+function getCopyLinkNode() {
   let linkContainer = document.createElement('div');
   linkContainer.id = 'link-container';
   let message = createMessage();
@@ -70,6 +70,14 @@ function getCopyLinkNode(workItemInfoHeader) {
   linkContainer.appendChild(workItemCopyLink);
   linkContainer.appendChild(message);
   return linkContainer;
+}
+
+function getTeamsShareNode() {
+  let teamsShare = document.createElement('div');
+  teamsShare.className = 'teams-share-button';
+  teamsShare.setAttribute('data-href', getLink());
+  teamsShare.setAttribute('data-icon-px-size', '18');
+  return teamsShare;
 }
 
 const obs = new MutationObserver(function (mutations, observer) {
@@ -81,6 +89,18 @@ const obs = new MutationObserver(function (mutations, observer) {
       mutationRecord.addedNodes.length > 0
     ) {
       mutationRecord.target.children[0].appendChild(getCopyLinkNode());
+
+      if (
+        navigator.userAgentData.brands.some(
+          (brand) => brand.brand === 'Google Chrome'
+        ) ||
+        navigator.userAgentData.brands.some(
+          (brand) => brand.brand === 'Microsoft Edge'
+        )
+      ) {
+        mutationRecord.target.children[0].appendChild(getTeamsShareNode());
+        shareToMicrosoftTeams.renderButtons();
+      }
     }
   }
 });
