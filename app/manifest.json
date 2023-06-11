@@ -25,5 +25,10 @@
       "matches": ["*://dev.azure.com/*"]
     }
   ],
-  "default_locale": "en"
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "7069c89a-e845-4505-9f90-9dfffe9ef0d7"
+    }
+  }
 }
