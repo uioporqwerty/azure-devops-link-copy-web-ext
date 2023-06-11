@@ -13,8 +13,8 @@ module.exports = {
     config.resolve = {
       extensions: ['.js', '.json']
     };
-    config.plugins = [
-      new CleanWebpackPlugin(),
+    config.plugins.push(new CleanWebpackPlugin());
+    config.plugins.push(
       new CopyWebpackPlugin({
         patterns: [
           { from: './manifest.json', to: './' },
@@ -28,7 +28,8 @@ module.exports = {
           }
         ]
       })
-    ];
+    );
+
     console.dir(config);
     return config;
   }
