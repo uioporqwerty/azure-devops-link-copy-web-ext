@@ -13,5 +13,11 @@
   },
   "linkAltMessage": {
     "message": "Kopiowanie łącza do elementu roboczego"
+  },
+  "options_isTeamsEnabledLabel": {
+    "message": "Pokaż zespoły Udostępnij"
+  },
+  "options_saveButton": {
+    "message": "Ratować"
   }
 }

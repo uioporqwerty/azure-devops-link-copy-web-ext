@@ -18,7 +18,7 @@
       "css": ["content-script.css"]
     }
   ],
-  "permissions": ["clipboardWrite"],
+  "permissions": ["clipboardWrite", "storage"],
   "web_accessible_resources": [
     {
       "resources": ["images/link-dark.svg", "images/link-light.svg"],
@@ -28,5 +28,8 @@
   "default_locale": "en",
   "browser_specific_settings": {
     "gecko": { "id": "{7069c89a-e845-4505-9f90-9dfffe9ef0d7}" }
+  },
+  "options_ui": {
+    "page": "options.html"
   }
 }

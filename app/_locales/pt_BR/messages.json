@@ -13,5 +13,11 @@
   },
   "linkAltMessage": {
     "message": "Copiar link para item de trabalho"
+  },
+  "options_isTeamsEnabledLabel": {
+    "message": "Mostrar Equipes Compartilhar"
+  },
+  "options_saveButton": {
+    "message": "Salvar"
   }
 }

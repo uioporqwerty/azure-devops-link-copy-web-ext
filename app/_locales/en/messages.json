@@ -13,5 +13,11 @@
   },
   "linkAltMessage": {
     "message": "Copy link to work item"
+  },
+  "options_isTeamsEnabledLabel": {
+    "message": "Show Teams Share"
+  },
+  "options_saveButton": {
+    "message": "Save"
   }
 }

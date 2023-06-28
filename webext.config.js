@@ -26,7 +26,8 @@ module.exports = {
             from: '../node_modules/webextension-polyfill/dist/browser-polyfill.js',
             to: './'
           },
-          { from: './', to: './src' }
+          { from: './', to: './src' },
+          { from: './options.js', to: './' }
         ]
       })
     );

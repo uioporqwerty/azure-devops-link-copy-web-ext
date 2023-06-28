@@ -80,7 +80,7 @@ function getTeamsShareNode() {
   return teamsShare;
 }
 
-const obs = new MutationObserver(function (mutations, observer) {
+const obs = new MutationObserver(async function (mutations, observer) {
   for (var i = 0; i < mutations.length; i++) {
     const mutationRecord = mutations[i];
     if (
@@ -90,10 +90,17 @@ const obs = new MutationObserver(function (mutations, observer) {
     ) {
       mutationRecord.target.children[0].appendChild(getCopyLinkNode());
 
+      let showTeamsButton = (await browser.storage.sync.get('isTeamsEnabled'))
+        .isTeamsEnabled;
+      if (showTeamsButton == undefined) {
+        showTeamsButton = true;
+      }
+
       if (
-        navigator.userAgentData.brands.some(
-          (brand) => brand.brand === 'Google Chrome'
-        ) ||
+        (showTeamsButton &&
+          navigator.userAgentData.brands.some(
+            (brand) => brand.brand === 'Google Chrome'
+          )) ||
         navigator.userAgentData.brands.some(
           (brand) => brand.brand === 'Microsoft Edge'
         )
